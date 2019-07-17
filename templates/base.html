@@ -1,0 +1,29 @@
+{% load static %}
+<html>
+
+<head>
+    <title>To do list</title>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+</head>
+<div>
+    <div class="form-group">
+        <h1><a href="{% url 'home' %}">To do list</a></h1>
+    </div>
+
+    <body>
+        <div class="nav-right">
+            <button type="button" class="btn btn-success"><a href="{% url 'post_new' %}">New task</a></button>
+        </div>
+        {% if user.is_authenticated %}
+        <p>Hi {{ user.username }}!</p>
+        <button>
+            <p><a href="{% url 'logout' %}">Log out</a></p>
+        </button> {% else %}
+        <p>You are not logged in.</p>
+        <button><a href="{% url 'login' %}">Log In</a></button>
+        <p>If you have not account.</p>
+        <a href="{% url 'signup' %}">Sign Up</a> {% endif %} {% block content %} {% endblock content %}
+</div>
+</body>
+
+</html>
