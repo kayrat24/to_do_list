@@ -25,7 +25,7 @@ SECRET_KEY = '4qq4rnxdc2d6pja1wu&keoc8@9qej2^@iw2-jysad=q-=r3!zx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.http://kayrat-to-do.tk/', '157.230.107.55']
 
 
 # Application definition
@@ -79,11 +79,16 @@ WSGI_APPLICATION = 'my_project.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       'NAME': 'simpledjango',
+       'USER': 'simpledjangouser',
+       'PASSWORD': '123simpledjango123',
+       'HOST': 'localhost',
+       'PORT': '',
+   }
 }
+
 
 
 # Password validation
